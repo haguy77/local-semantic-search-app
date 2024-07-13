@@ -1,11 +1,11 @@
 import streamlit as st
 import yaml
 
-from document_loader import DocumentLoader
-from index_creator import IndexCreator
-from indexed_folders_manager import IndexedFoldersManager
-from search_engine import SearchEngine
-from utils import truncate_text, folder_needs_update
+from src.document_loader import DocumentLoader
+from src.index_creator import IndexCreator
+from src.indexed_folders_manager import IndexedFoldersManager
+from src.search_engine import SearchEngine
+from src.utils import truncate_text, folder_needs_update
 
 
 class HybridSearchApp:
