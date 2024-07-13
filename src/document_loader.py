@@ -1,6 +1,6 @@
 import os
 
-from langchain.document_loaders import DirectoryLoader, TextLoader
+from langchain_community.document_loaders import DirectoryLoader, TextLoader
 
 
 class DocumentLoader:
@@ -11,5 +11,6 @@ class DocumentLoader:
         if not os.path.isdir(self.directory):
             raise ValueError("Invalid directory path")
 
-        loader = DirectoryLoader(self.directory, glob="**/*.txt", loader_cls=TextLoader)
+        loader = DirectoryLoader(self.directory, glob="**/*.txt", loader_cls=TextLoader,
+                                 loader_kwargs={"encoding": "utf8"})
         return loader.load()

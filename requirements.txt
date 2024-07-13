@@ -1,5 +1,8 @@
 streamlit
 langchain
+langchain-community
+langchain_huggingface
 faiss-cpu
 rank_bm25
 sentence-transformers
+PyYAML

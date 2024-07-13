@@ -1,12 +1,15 @@
-from langchain.embeddings import HuggingFaceEmbeddings
-from langchain.text_splitter import CharacterTextSplitter
-from langchain.vectorstores import FAISS
+import yaml
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_community.vectorstores import FAISS
+from langchain_huggingface import HuggingFaceEmbeddings
 
 
 class IndexCreator:
     def __init__(self):
-        self.text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
-        self.embeddings = HuggingFaceEmbeddings()
+        self.text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=250)
+        with open("config.yaml", "r") as f:
+            config = yaml.safe_load(f)
+        self.embeddings = HuggingFaceEmbeddings(model_name=config["embedding_model"])
 
     def create_faiss_index(self, documents):
         texts = self.text_splitter.split_documents(documents)

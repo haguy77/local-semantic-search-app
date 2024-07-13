@@ -1,0 +1,2 @@
+embedding_model: "haguy77/sdictabert-heq"
+cross_encoder_model: "haguy77/dictabert-ce"

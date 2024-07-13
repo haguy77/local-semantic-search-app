@@ -9,8 +9,10 @@ The application allows users to index local directories, save indexed folders fo
 ## Features
 
 - **Hybrid Search**: Combine semantic search and BM25 for optimal results
+- **Reranking**: Use CrossEncoder to refine search results
+- **Configurable Models**: Easily change embedding and cross-encoder models via config file
 - **Local Directory Indexing**: Index and search through documents in local directories
-- **Adjustable Search Parameters**: Fine-tune the balance between semantic and keyword-based search
+- **Adjustable Search Parameters**: Fine-tune the balance between semantic and keyword-based search and the number of results
 - **Folder Management**: Save and manage indexed folders for quick access
 - **Update Detection**: Automatically detect changes in indexed folders and prompt for updates
 - **User-Friendly Interface**: Easy-to-use Streamlit-based web interface
@@ -37,6 +39,13 @@ The application allows users to index local directories, save indexed folders fo
 - Select previously indexed folders
 - Perform hybrid searches
 - Adjust search parameters
+
+## Configuration
+
+The `config.yaml` file allows you to specify the following:
+
+- `embedding_model`: The Hugging Face model name for document embedding
+- `cross_encoder_model`: The Hugging Face model name for the CrossEncoder used in reranking
 
 ## Project Structure
 
@@ -68,8 +77,9 @@ hybrid_search_project/\
    - Semantic search is performed using cosine similarity on document embeddings.
    - BM25 algorithm is used for keyword-based relevance scoring.
    - Results are combined using an adjustable alpha parameter.
-4. **Folder Management**: Indexed folders are saved and can be quickly accessed for future searches.
-5. **Update Detection**: The system checks for changes in indexed folders and allows for easy updates.
+4. **Reranking**: A CrossEncoder model refines the ordering of search results.
+5. **Folder Management**: Indexed folders are saved and can be quickly accessed for future searches.
+6. **Update Detection**: The system checks for changes in indexed folders and allows for easy updates.
 
 ## Contributing
 
